@@ -27,7 +27,7 @@
         <version.xerces>2.12.0</version.xerces>
         <version.dom4j>1.6.1</version.dom4j>
         <version.saxon>8.7</version.saxon>
-        <version.jboss-el>1.0_02.CR6</version.jboss-el>
+        <version.jboss-el>1.1.0</version.jboss-el>
         <version.xsom>20081112</version.xsom>
         <version.google-functional-collections>1.1.7</version.google-functional-collections>
         <version.guice>3.0</version.guice>
@@ -120,7 +120,7 @@
                 <version>${version.jaxb}</version>
             </dependency>
             <dependency>
-                <groupId>org.jboss.el</groupId>
+                <groupId>com.github.albfernandez</groupId>
                 <artifactId>jboss-el</artifactId>
                 <version>${version.jboss-el}</version>
             </dependency>
