@@ -33,7 +33,7 @@
         <version.guice>3.0</version.guice>
         <version.sisu>3.1.0</version.sisu>
         <version.javaparser>1.0.1</version.javaparser>
-        <version.guava>11.0.2</version.guava>
+        <version.guava>24.1.1-jre</version.guava>
         <version.jcommander>1.20</version.jcommander>
         <version.plexus-utils>3.0.24</version.plexus-utils>
         <version.plexus-velocity>1.1.2</version.plexus-velocity>
