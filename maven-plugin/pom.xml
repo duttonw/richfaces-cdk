@@ -132,6 +132,18 @@
     </build>
     <profiles>
         <profile>
+            <id>java9+</id>
+            <activation>
+                <jdk>[9,)</jdk>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>javax.xml.bind</groupId>
+                    <artifactId>jaxb-api</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
             <id>it</id>
             <build>
                 <plugins>

@@ -5,3 +5,5 @@ test-output
 .project
 .clover
 .externalToolBuilders
+.idea/
+*.iml

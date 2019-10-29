@@ -105,7 +105,7 @@ public abstract class SourceUtilsTestBase extends AnnotationProcessorTestBase {
      * @author asmirnov@exadel.com
      *
      */
-    @SupportedSourceVersion(SourceVersion.RELEASE_6)
+    @SupportedSourceVersion(SourceVersion.RELEASE_8)
     @SupportedAnnotationTypes("*")
     public static class TestProcessor extends AbstractProcessor implements CdkProcessor {
         @Inject
