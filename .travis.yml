@@ -2,10 +2,11 @@ language: java
 
 dist: trusty
 
-install: mvn clean install -B -Dgpg.skip=true -DskipTests=true 
+install: "mvn test-compile -DskipTests=true -Dgpg.skip=true -B -V -q"
+script: "mvn verify -Dgpg.skip=true -B -V"
 
-jdk: 
-  - openjdk7
-
+jdk:
+  - openjdk8
+  - openjdk11
 
 
