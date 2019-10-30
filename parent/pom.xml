@@ -23,11 +23,9 @@
         <version.jboss-javaee>3.0.2.Final</version.jboss-javaee>
 
         <!-- Compile deps -->
-        <version.jaxb.api>2.3.1</version.jaxb.api>
-        <version.jaxb.core>2.2.11</version.jaxb.core>
-        <version.jaxb.impl>2.2.11</version.jaxb.impl>
         <version.freemarker>2.3.9</version.freemarker>
-        <version.jaxb>2.2</version.jaxb>
+        <version.jaxb.impl>2.3.2</version.jaxb.impl>
+        <version.jaxb.api>2.3.1</version.jaxb.api>
         <version.xerces>2.12.0</version.xerces>
         <version.dom4j>1.6.1</version.dom4j>
         <version.saxon>8.7</version.saxon>
@@ -57,8 +55,8 @@
 
         <!-- maven-compiler-plugin -->
         <!-- Overide jboss-parent default version-->
-        <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
 
     <dependencyManagement>
@@ -120,13 +118,13 @@
             </dependency>
             <dependency>
                 <groupId>com.sun.xml.bind</groupId>
-                <artifactId>jaxb-core</artifactId>
-                <version>${version.jaxb.core}</version>
+                <artifactId>jaxb-impl</artifactId>
+                <version>${version.jaxb.impl}</version>
             </dependency>
             <dependency>
                 <groupId>com.sun.xml.bind</groupId>
-                <artifactId>jaxb-impl</artifactId>
-                <version>${version.jaxb.impl}</version>
+                <artifactId>jaxb-core</artifactId>
+                <version>2.3.0.1</version>
             </dependency>
             <dependency>
                 <groupId>com.github.albfernandez</groupId>
@@ -258,6 +256,11 @@
         <pluginManagement>
             <plugins>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                </plugin>
+                <plugin>
                     <groupId>org.richfaces.cdk</groupId>
                     <artifactId>richfaces-cdk-maven-plugin</artifactId>
                     <version>${version.cdk}</version>
@@ -274,18 +277,19 @@
                         </dependency>
                     </dependencies>
                 </plugin>
-                <plugin>
-                    <groupId>org.codehaus.groovy.maven</groupId>
-                    <artifactId>gmaven-plugin</artifactId>
-                    <version>${version.gmaven.plugin}</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.codehaus.groovy.maven.runtime</groupId>
-                            <artifactId>gmaven-runtime-1.6</artifactId>
-                            <version>${version.gmaven.plugin}</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
+                <!-- //TODO make work with groovy 2+  java 11-->
+<!--                <plugin>-->
+<!--                    <groupId>org.codehaus.groovy.maven</groupId>-->
+<!--                    <artifactId>gmaven-plugin</artifactId>-->
+<!--                    <version>${version.gmaven.plugin}</version>-->
+<!--                    <dependencies>-->
+<!--                        <dependency>-->
+<!--                            <groupId>org.codehaus.groovy.maven.runtime</groupId>-->
+<!--                            <artifactId>gmaven-runtime-1.6</artifactId>-->
+<!--                            <version>${version.gmaven.plugin}</version>-->
+<!--                        </dependency>-->
+<!--                    </dependencies>-->
+<!--                </plugin>-->
                 <plugin>
                     <groupId>org.codehaus.modello</groupId>
                     <artifactId>modello-maven-plugin</artifactId>

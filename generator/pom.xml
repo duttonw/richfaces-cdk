@@ -18,8 +18,8 @@
 
         <!-- maven-compiler-plugin -->
         <!-- Overide jboss-parent default version-->
-        <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
     <build>
         <plugins>
@@ -33,35 +33,37 @@
                 <!--<mainClass>mypackage.boot.camel.CamelStartup</mainClass> -->
                 <!--</configuration> -->
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.groovy.maven</groupId>
-                <artifactId>gmaven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>execute</goal>
-                        </goals>
-                        <configuration>
-                            <properties>
-                                <sourceSchema>src/main/resources/META-INF/schema/xhtml-el.xsd</sourceSchema>
-                                <targetNamespace>http://jboss.org/schema/richfaces/cdk/xhtml-el</targetNamespace>
-                                <outputFile>generated-resources/META-INF/cdk/attributes/xhtml-el.xml</outputFile>
-                            </properties>
-                            <classpath>
-                                <element>
-                                    <groupId>com.sun.xsom</groupId>
-                                    <artifactId>xsom</artifactId>
-                                </element>
-                            </classpath>
-                            <source>${project.basedir}/src/main/script/SchemaAttributesParserTask.groovy</source>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+            <!-- //TODO make work with groovy 2+ java 11 -->
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.groovy.maven</groupId>-->
+<!--                <artifactId>gmaven-plugin</artifactId>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>generate-resources</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>execute</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <properties>-->
+<!--                                <sourceSchema>src/main/resources/META-INF/schema/xhtml-el.xsd</sourceSchema>-->
+<!--                                <targetNamespace>http://jboss.org/schema/richfaces/cdk/xhtml-el</targetNamespace>-->
+<!--                                <outputFile>generated-resources/META-INF/cdk/attributes/xhtml-el.xml</outputFile>-->
+<!--                            </properties>-->
+<!--                            <classpath>-->
+<!--                                <element>-->
+<!--                                    <groupId>com.sun.xsom</groupId>-->
+<!--                                    <artifactId>xsom</artifactId>-->
+<!--                                </element>-->
+<!--                            </classpath>-->
+<!--                            <source>${project.basedir}/src/main/script/SchemaAttributesParserTask.groovy</source>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.0</version>
                 <configuration>
                     <useManifestOnlyJar>false</useManifestOnlyJar>
                     <useSystemClassLoader>true</useSystemClassLoader>
@@ -113,19 +115,19 @@
                     <configuration>
                         <lifecycleMappingMetadata>
                             <pluginExecutions>
-                                <pluginExecution>
-                                    <pluginExecutionFilter>
-                                        <groupId>org.codehaus.groovy.maven</groupId>
-                                        <artifactId>gmaven-plugin</artifactId>
-                                        <versionRange>[1.0,)</versionRange>
-                                        <goals>
-                                            <goal>execute</goal>
-                                        </goals>
-                                    </pluginExecutionFilter>
-                                    <action>
-                                        <ignore />
-                                    </action>
-                                </pluginExecution>
+<!--                                <pluginExecution>-->
+<!--                                    <pluginExecutionFilter>-->
+<!--                                        <groupId>org.codehaus.groovy.maven</groupId>-->
+<!--                                        <artifactId>gmaven-plugin</artifactId>-->
+<!--                                        <versionRange>[1.0,)</versionRange>-->
+<!--                                        <goals>-->
+<!--                                            <goal>execute</goal>-->
+<!--                                        </goals>-->
+<!--                                    </pluginExecutionFilter>-->
+<!--                                    <action>-->
+<!--                                        <ignore />-->
+<!--                                    </action>-->
+<!--                                </pluginExecution>-->
                             </pluginExecutions>
                         </lifecycleMappingMetadata>
                     </configuration>
@@ -171,6 +173,10 @@
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-core</artifactId>
         </dependency>
         <dependency>
             <groupId>com.github.albfernandez</groupId>
@@ -231,18 +237,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <profiles>
-        <profile>
-            <id>java9+</id>
-            <activation>
-                <jdk>[9,)</jdk>
-            </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>javax.xml.bind</groupId>
-                    <artifactId>jaxb-api</artifactId>
-                </dependency>
-            </dependencies>
-        </profile>
-    </profiles>
 </project>
