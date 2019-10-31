@@ -27,6 +27,8 @@ import static org.richfaces.cdk.templatecompiler.QNameComparator.QNAME_COMPARATO
 import java.util.Map;
 import java.util.TreeMap;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAnyAttribute;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.namespace.QName;
@@ -39,10 +41,14 @@ import org.richfaces.cdk.CdkException;
  *
  * @author asmirnov@exadel.com
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class AnyElement extends ModelFragment {
     private QName name;
+    @XmlAttribute(namespace = Template.CDK_NAMESPACE)
     private String passThrough;
+    @XmlAttribute(namespace = Template.CDK_NAMESPACE)
     private String passThroughWithExclusions;
+    @XmlAnyAttribute
     private Map<QName, Object> attributes = new TreeMap<QName, Object>(QNAME_COMPARATOR);
 
     /**
@@ -71,7 +77,6 @@ public class AnyElement extends ModelFragment {
      *
      * @return the passThrough
      */
-    @XmlAttribute(namespace = Template.CDK_NAMESPACE)
     public String getPassThrough() {
         return this.passThrough;
     }
@@ -92,7 +97,6 @@ public class AnyElement extends ModelFragment {
      *
      * @return the passThroughWithExclusions
      */
-    @XmlAttribute(namespace = Template.CDK_NAMESPACE)
     public String getPassThroughWithExclusions() {
         return this.passThroughWithExclusions;
     }
@@ -113,7 +117,6 @@ public class AnyElement extends ModelFragment {
      *
      * @return the attributes
      */
-    @XmlAnyAttribute
     public Map<QName, Object> getAttributes() {
         return this.attributes;
     }

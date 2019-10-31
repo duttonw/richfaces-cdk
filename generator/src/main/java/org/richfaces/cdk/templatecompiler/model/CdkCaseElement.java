@@ -21,6 +21,8 @@
  */
 package org.richfaces.cdk.templatecompiler.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -31,6 +33,7 @@ import org.richfaces.cdk.CdkException;
  *
  */
 @XmlRootElement(name = "case", namespace = Template.CDK_NAMESPACE)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CdkCaseElement extends ModelFragment {
     @XmlAttribute
     private String[] values;

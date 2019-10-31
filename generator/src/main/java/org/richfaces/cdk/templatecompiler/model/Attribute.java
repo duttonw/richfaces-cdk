@@ -25,6 +25,8 @@ package org.richfaces.cdk.templatecompiler.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -40,6 +42,7 @@ import com.google.common.collect.Lists;
  *
  * @author asmirnov@exadel.com
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Attribute implements Serializable {
     private static final long serialVersionUID = -8183353368681247171L;
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)

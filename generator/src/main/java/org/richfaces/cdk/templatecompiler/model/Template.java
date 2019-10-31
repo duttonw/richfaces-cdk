@@ -26,6 +26,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.xml.XMLConstants;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.namespace.QName;
@@ -37,6 +39,7 @@ import javax.xml.namespace.QName;
  * @author asmirnov@exadel.com
  */
 @XmlRootElement(name = "root", namespace = Template.CDK_NAMESPACE)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Template implements Serializable {
     public static final String JSTL_CORE_NAMESPACE = "http://jboss.org/schema/richfaces/cdk/jstl/core";
     public static final String CDK_NAMESPACE = "http://jboss.org/schema/richfaces/cdk/core";
@@ -46,8 +49,11 @@ public class Template implements Serializable {
     public static final String XHTML_NAMESPACE = "http://www.w3.org/1999/xhtml";
     private static final long serialVersionUID = -6900382133123748812L;
     private String templatePath;
+    @XmlElement(name = "interface", namespace = COMPOSITE_NAMESPACE)
     private CompositeInterface compositeInterface;
+    @XmlElement(name = "implementation", namespace = COMPOSITE_NAMESPACE)
     private CompositeImplementation compositeImplementation;
+    @XmlElement(name = "fragment", namespace = CDK_NAMESPACE)
     private List<CdkFragmentElement> fragments;
 
     public String getTemplatePath() {
@@ -64,7 +70,6 @@ public class Template implements Serializable {
      *
      * @return the interface
      */
-    @XmlElement(name = "interface", namespace = COMPOSITE_NAMESPACE)
     public CompositeInterface getInterface() {
         return this.compositeInterface;
     }
@@ -85,7 +90,6 @@ public class Template implements Serializable {
      *
      * @return the implementation
      */
-    @XmlElement(name = "implementation", namespace = COMPOSITE_NAMESPACE)
     public CompositeImplementation getImplementation() {
         return this.compositeImplementation;
     }
@@ -100,7 +104,6 @@ public class Template implements Serializable {
         this.compositeImplementation = implementation;
     }
 
-    @XmlElement(name = "fragment", namespace = CDK_NAMESPACE)
     public List<CdkFragmentElement> getFragments() {
         return fragments;
     }

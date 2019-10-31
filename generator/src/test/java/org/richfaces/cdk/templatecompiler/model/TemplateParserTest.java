@@ -253,8 +253,8 @@ public class TemplateParserTest extends JaxbTestBase {
         Iterator<ClassImport> children = classImports.iterator();
 
         importElement = children.next();
-        assertEquals("com.foo", importElement.getPackage());
         assertEquals(Arrays.asList("Bar", "Fooz"), importElement.getNames());
+        assertEquals("com.foo", importElement.getPackage());
         assertFalse(importElement.isStatic());
 
         importElement = children.next();

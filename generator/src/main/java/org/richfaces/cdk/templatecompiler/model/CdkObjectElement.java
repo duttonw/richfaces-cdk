@@ -21,9 +21,7 @@
  */
 package org.richfaces.cdk.templatecompiler.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlValue;
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.richfaces.cdk.CdkException;
@@ -33,6 +31,7 @@ import org.richfaces.cdk.CdkException;
  * @since 4.0
  */
 @XmlRootElement(name = "object", namespace = Template.CDK_NAMESPACE)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CdkObjectElement implements ModelElement {
     @XmlAttribute(required = true)
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)

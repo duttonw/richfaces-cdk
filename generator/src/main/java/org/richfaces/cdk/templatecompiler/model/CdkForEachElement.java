@@ -21,6 +21,8 @@
  */
 package org.richfaces.cdk.templatecompiler.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -31,15 +33,22 @@ import org.richfaces.cdk.CdkException;
  * @since 4.0
  */
 @XmlRootElement(name = "forEach", namespace = Template.JSTL_CORE_NAMESPACE)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CdkForEachElement extends ModelFragment {
+    @XmlAttribute
     private String items;
+    @XmlAttribute
     private String var;
+    @XmlAttribute
     private String varStatus;
+    @XmlAttribute
     private Integer begin;
+    @XmlAttribute
     private Integer end;
+    @XmlAttribute
     private Integer step;
 
-    @XmlAttribute
+
     public String getItems() {
         return items;
     }
@@ -48,7 +57,6 @@ public class CdkForEachElement extends ModelFragment {
         this.items = items;
     }
 
-    @XmlAttribute
     public String getVar() {
         return var;
     }
@@ -57,7 +65,6 @@ public class CdkForEachElement extends ModelFragment {
         this.var = var;
     }
 
-    @XmlAttribute
     public String getVarStatus() {
         return varStatus;
     }
@@ -66,7 +73,6 @@ public class CdkForEachElement extends ModelFragment {
         this.varStatus = varStatus;
     }
 
-    @XmlAttribute
     public Integer getBegin() {
         return begin;
     }
@@ -75,7 +81,6 @@ public class CdkForEachElement extends ModelFragment {
         this.begin = begin;
     }
 
-    @XmlAttribute
     public Integer getEnd() {
         return end;
     }
@@ -84,7 +89,6 @@ public class CdkForEachElement extends ModelFragment {
         this.end = end;
     }
 
-    @XmlAttribute
     public Integer getStep() {
         return step;
     }

@@ -23,9 +23,7 @@ package org.richfaces.cdk.templatecompiler.model;
 
 import java.util.Map;
 
-import javax.xml.bind.annotation.XmlAnyAttribute;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import javax.xml.namespace.QName;
 
 import org.richfaces.cdk.CdkException;
@@ -34,12 +32,15 @@ import org.richfaces.cdk.CdkException;
  * @author Lukas Fryc
  */
 @XmlRootElement(name = "renderFragment", namespace = Template.CDK_NAMESPACE)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CdkRenderFragmentElement implements ModelElement {
 
+    @XmlAttribute(required = true)
     private String name;
+    @XmlAnyAttribute
     private Map<QName, String> attributes;
 
-    @XmlAttribute(required = true)
+
     public String getName() {
         return name;
     }
@@ -48,7 +49,6 @@ public class CdkRenderFragmentElement implements ModelElement {
         this.name = name;
     }
 
-    @XmlAnyAttribute
     public Map<QName, String> getAttributes() {
         return attributes;
     }

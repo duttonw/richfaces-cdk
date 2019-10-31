@@ -26,6 +26,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.render.RenderKitFactory;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -45,18 +47,37 @@ import com.google.common.collect.Lists;
  * @author <a href="http://community.jboss.org/people/bleathem">Brian Leathem</a>
  */
 @XmlRootElement(name = "interface", namespace = Template.COMPOSITE_NAMESPACE)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CompositeInterface implements Serializable {
     private static final long serialVersionUID = -5578359507253872500L;
+
+    @XmlJavaTypeAdapter(FacesIdAdapter.class)
+    @XmlElement(name = "component-family", namespace = Template.CDK_NAMESPACE)
     private FacesId componentFamily;
+    @XmlElement(name = "attribute", namespace = Template.COMPOSITE_NAMESPACE)
     private List<Attribute> attributes = Lists.newArrayList();
+    @XmlElement(name = "resource-dependency", namespace = Template.CDK_NAMESPACE)
     private List<ResourceDependency> resourceDependencies = Lists.newArrayList();
+    @XmlElement(name = "import-attributes", namespace = Template.CDK_NAMESPACE)
     private List<ImportAttributes> attributesImports = Lists.newArrayList();
+    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    @XmlElement(name = "renderkit-id", namespace = Template.CDK_NAMESPACE)
     private String renderKitId = RenderKitFactory.HTML_BASIC_RENDER_KIT;
+    @XmlJavaTypeAdapter(ClassAdapter.class)
+    @XmlElement(name = "class", namespace = Template.CDK_NAMESPACE)
     private ClassName javaClass;
+    @XmlJavaTypeAdapter(ClassAdapter.class)
+    @XmlElement(name = "superclass", namespace = Template.CDK_NAMESPACE)
     private ClassName baseClass;
+    @XmlJavaTypeAdapter(ClassAdapter.class)
+    @XmlElement(name = "component-base-class", namespace = Template.CDK_NAMESPACE)
     private ClassName componentBaseClass;
+    @XmlJavaTypeAdapter(FacesIdAdapter.class)
+    @XmlElement(name = "renderer-type", namespace = Template.CDK_NAMESPACE)
     private FacesId rendererType;
+    @XmlElement(name = "renders-children", namespace = Template.CDK_NAMESPACE)
     private Boolean rendersChildren = null;
+    @XmlElement(name = "import", namespace = Template.CDK_NAMESPACE)
     private List<ClassImport> classImports = Lists.newArrayList();
 
     /**
@@ -65,8 +86,6 @@ public class CompositeInterface implements Serializable {
      *
      * @return the family
      */
-    @XmlJavaTypeAdapter(FacesIdAdapter.class)
-    @XmlElement(name = "component-family", namespace = Template.CDK_NAMESPACE)
     public FacesId getComponentFamily() {
         return this.componentFamily;
     }
@@ -87,7 +106,6 @@ public class CompositeInterface implements Serializable {
      *
      * @return the attributes
      */
-    @XmlElement(name = "attribute", namespace = Template.COMPOSITE_NAMESPACE)
     public List<Attribute> getAttributes() {
         return this.attributes;
     }
@@ -109,7 +127,6 @@ public class CompositeInterface implements Serializable {
      * @return the resourceDependencies
      */
     // @XmlElementWrapper(name = "resource-dependencies", namespace = Template.CDK_NAMESPACE)
-    @XmlElement(name = "resource-dependency", namespace = Template.CDK_NAMESPACE)
     public List<ResourceDependency> getResourceDependencies() {
         return resourceDependencies;
     }
@@ -130,8 +147,6 @@ public class CompositeInterface implements Serializable {
      *
      * @return the renderKitId
      */
-    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
-    @XmlElement(name = "renderkit-id", namespace = Template.CDK_NAMESPACE)
     public String getRenderKitId() {
         return this.renderKitId;
     }
@@ -152,8 +167,6 @@ public class CompositeInterface implements Serializable {
      *
      * @return the javaClass
      */
-    @XmlJavaTypeAdapter(ClassAdapter.class)
-    @XmlElement(name = "class", namespace = Template.CDK_NAMESPACE)
     public ClassName getJavaClass() {
         return this.javaClass;
     }
@@ -174,8 +187,6 @@ public class CompositeInterface implements Serializable {
      *
      * @return the rendererType
      */
-    @XmlJavaTypeAdapter(FacesIdAdapter.class)
-    @XmlElement(name = "renderer-type", namespace = Template.CDK_NAMESPACE)
     public FacesId getRendererType() {
         return this.rendererType;
     }
@@ -196,8 +207,6 @@ public class CompositeInterface implements Serializable {
      *
      * @return the baseClass
      */
-    @XmlJavaTypeAdapter(ClassAdapter.class)
-    @XmlElement(name = "superclass", namespace = Template.CDK_NAMESPACE)
     public ClassName getBaseClass() {
         return this.baseClass;
     }
@@ -218,8 +227,6 @@ public class CompositeInterface implements Serializable {
      *
      * @return the componentBaseClass
      */
-    @XmlJavaTypeAdapter(ClassAdapter.class)
-    @XmlElement(name = "component-base-class", namespace = Template.CDK_NAMESPACE)
     public ClassName getComponentBaseClass() {
         return this.componentBaseClass;
     }
@@ -240,7 +247,6 @@ public class CompositeInterface implements Serializable {
      *
      * @return the rendersChildren
      */
-    @XmlElement(name = "renders-children", namespace = Template.CDK_NAMESPACE)
     public Boolean getRendersChildren() {
         return rendersChildren;
     }
@@ -258,7 +264,6 @@ public class CompositeInterface implements Serializable {
      *
      * @return the attributesImports
      */
-    @XmlElement(name = "import-attributes", namespace = Template.CDK_NAMESPACE)
     public List<ImportAttributes> getAttributesImports() {
         return attributesImports;
     }
@@ -276,7 +281,6 @@ public class CompositeInterface implements Serializable {
     /**
      * @return the classImports
      */
-    @XmlElement(name = "import", namespace = Template.CDK_NAMESPACE)
     public List<ClassImport> getClassImports() {
         return classImports;
     }

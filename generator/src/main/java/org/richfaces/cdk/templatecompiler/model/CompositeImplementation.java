@@ -24,6 +24,8 @@ package org.richfaces.cdk.templatecompiler.model;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.richfaces.cdk.CdkException;
@@ -35,6 +37,7 @@ import org.richfaces.cdk.CdkException;
  * @author asmirnov@exadel.com
  */
 @XmlRootElement(name = "implementation", namespace = Template.COMPOSITE_NAMESPACE)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CompositeImplementation extends ModelFragment implements Serializable {
     private static final long serialVersionUID = -3046226976516170979L;
 

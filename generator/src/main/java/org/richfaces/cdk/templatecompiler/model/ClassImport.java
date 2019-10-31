@@ -24,6 +24,8 @@ package org.richfaces.cdk.templatecompiler.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
@@ -31,16 +33,19 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * @author Nick Belaevski
  *
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ClassImport implements Serializable {
+    @XmlAttribute(name= "package", required = true)
+    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     private String packageName;
+    @XmlAttribute(name="static")
     private boolean staticImport;
+    @XmlAttribute
     private List<String> names;
 
     /**
      * @return the package_
      */
-    @XmlAttribute(required = true)
-    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     public String getPackage() {
         return packageName;
     }
@@ -55,7 +60,6 @@ public class ClassImport implements Serializable {
     /**
      * @return the static_
      */
-    @XmlAttribute
     public boolean isStatic() {
         return staticImport;
     }
@@ -70,7 +74,6 @@ public class ClassImport implements Serializable {
     /**
      * @return the classes
      */
-    @XmlAttribute
     public List<String> getNames() {
         return names;
     }

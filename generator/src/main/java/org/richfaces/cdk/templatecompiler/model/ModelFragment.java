@@ -2,9 +2,7 @@ package org.richfaces.cdk.templatecompiler.model;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlMixed;
-import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.*;
 
 import org.richfaces.cdk.CdkException;
 

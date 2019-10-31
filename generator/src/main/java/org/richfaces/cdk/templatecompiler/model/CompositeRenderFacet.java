@@ -21,6 +21,8 @@
  */
 package org.richfaces.cdk.templatecompiler.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -34,6 +36,7 @@ import org.richfaces.cdk.CdkException;
  * @author Lukas Fryc
  */
 @XmlRootElement(name = "renderFacet", namespace = Template.COMPOSITE_NAMESPACE)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CompositeRenderFacet extends ModelFragment {
 
     @XmlAttribute(required = true)

@@ -21,12 +21,15 @@
  */
 package org.richfaces.cdk.templatecompiler.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 
 /**
  * @author Nick Belaevski
  * @since 4.0
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public abstract class CdkConditionalJstlElementBase extends ModelFragment {
     @XmlAttribute(required = true)
     private String test;

@@ -24,6 +24,8 @@ package org.richfaces.cdk.templatecompiler.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -34,6 +36,7 @@ import org.richfaces.cdk.CdkException;
  *
  */
 @XmlRootElement(name = "scriptOption", namespace = Template.CDK_NAMESPACE)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CdkScriptOptionElement implements ModelElement {
     @XmlAttribute
     private List<String> variables = new ArrayList<String>();

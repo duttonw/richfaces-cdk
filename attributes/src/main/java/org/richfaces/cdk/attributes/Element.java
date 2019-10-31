@@ -26,15 +26,14 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * @author Nick Belaevski
  *
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Element implements KeyedType {
     @XmlRootElement(name = "elements")
     @XmlType(name = "ElementsType")
@@ -52,7 +51,11 @@ public class Element implements KeyedType {
         }
     }
 
+    @XmlElement(name="name")
+    @XmlJavaTypeAdapter(Adapters.NormalizedStringAdapter.class)
     private String name;
+    @XmlElement(name="attributes")
+    @XmlJavaTypeAdapter(Adapters.AttributeAdapter.class)
     private Map<String, Attribute> attributes = new TreeMap<String, Attribute>();
 
     public Element() {
@@ -67,8 +70,6 @@ public class Element implements KeyedType {
     /**
      * @return the name
      */
-    @XmlElement
-    @XmlJavaTypeAdapter(Adapters.NormalizedStringAdapter.class)
     public String getName() {
         return name;
     }
@@ -92,7 +93,6 @@ public class Element implements KeyedType {
     /**
      * @return the attributes
      */
-    @XmlJavaTypeAdapter(Adapters.AttributeAdapter.class)
     public Map<String, Attribute> getAttributes() {
         return attributes;
     }

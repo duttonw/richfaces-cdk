@@ -24,6 +24,8 @@ package org.richfaces.cdk.templatecompiler.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -31,13 +33,14 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Lukas Fryc
  */
 @XmlRootElement(name = "interface", namespace = Template.COMPOSITE_NAMESPACE)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CompositeFragmentInterface extends ModelFragment implements Serializable {
 
     private static final long serialVersionUID = -1885511982050527608L;
 
+    @XmlElement(name = "attribute", namespace = Template.COMPOSITE_NAMESPACE)
     private List<CompositeAttribute> attributes;
 
-    @XmlElement(name = "attribute", namespace = Template.COMPOSITE_NAMESPACE)
     public List<CompositeAttribute> getAttributes() {
         return attributes;
     }
