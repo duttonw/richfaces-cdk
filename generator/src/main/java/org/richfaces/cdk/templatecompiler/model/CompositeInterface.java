@@ -47,7 +47,7 @@ import com.google.common.collect.Lists;
  * @author <a href="http://community.jboss.org/people/bleathem">Brian Leathem</a>
  */
 @XmlRootElement(name = "interface", namespace = Template.COMPOSITE_NAMESPACE)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CompositeInterface implements Serializable {
     private static final long serialVersionUID = -5578359507253872500L;
 

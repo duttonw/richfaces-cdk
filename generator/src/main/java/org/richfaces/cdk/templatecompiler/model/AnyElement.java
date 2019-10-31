@@ -41,7 +41,7 @@ import org.richfaces.cdk.CdkException;
  *
  * @author asmirnov@exadel.com
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class AnyElement extends ModelFragment {
     private QName name;
     @XmlAttribute(namespace = Template.CDK_NAMESPACE)

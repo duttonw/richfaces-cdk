@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * @author Nick Belaevski
  *
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class ImportAttributes implements Serializable {
 
     private static final long serialVersionUID = 1811205894633065557L;

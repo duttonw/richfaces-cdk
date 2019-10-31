@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * @author Nick Belaevski
  *
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class ClassImport implements Serializable {
     @XmlAttribute(name= "package", required = true)
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)

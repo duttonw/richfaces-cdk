@@ -33,7 +33,7 @@ import org.richfaces.cdk.CdkException;
  * @since 4.0
  */
 @XmlRootElement(name = "forEach", namespace = Template.JSTL_CORE_NAMESPACE)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CdkForEachElement extends ModelFragment {
     @XmlAttribute
     private String items;

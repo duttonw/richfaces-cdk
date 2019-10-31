@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * @author Nick Belaevski
  *
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class Attribute implements KeyedType {
     public enum Kind {
         GENERIC,
@@ -41,7 +41,7 @@ public class Attribute implements KeyedType {
 
     @XmlRootElement(name = "attributes")
     @XmlType(name = "AttributesType")
-    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlAccessorType(XmlAccessType.NONE)
     public static final class Type implements ContainerType<Attribute> {
         @XmlElement(name = "attribute")
         private Collection<Attribute> children = new HashSet<Attribute>();

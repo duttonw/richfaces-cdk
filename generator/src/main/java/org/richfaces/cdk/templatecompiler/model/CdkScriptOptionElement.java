@@ -36,7 +36,7 @@ import org.richfaces.cdk.CdkException;
  *
  */
 @XmlRootElement(name = "scriptOption", namespace = Template.CDK_NAMESPACE)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CdkScriptOptionElement implements ModelElement {
     @XmlAttribute
     private List<String> variables = new ArrayList<String>();

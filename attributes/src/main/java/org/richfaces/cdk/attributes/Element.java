@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * @author Nick Belaevski
  *
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class Element implements KeyedType {
     @XmlRootElement(name = "elements")
     @XmlType(name = "ElementsType")

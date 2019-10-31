@@ -33,11 +33,11 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * @author Nick Belaevski
  *
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class Schema implements KeyedType {
     @XmlRootElement(name = "schemas")
     @XmlType(name = "SchemasType")
-    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlAccessorType(XmlAccessType.NONE)
     public static final class Type implements ContainerType<Schema> {
         @XmlElement(name = "schema")
         private Collection<Schema> children = new HashSet<Schema>();

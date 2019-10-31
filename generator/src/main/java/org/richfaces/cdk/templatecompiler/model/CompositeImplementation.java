@@ -37,7 +37,7 @@ import org.richfaces.cdk.CdkException;
  * @author asmirnov@exadel.com
  */
 @XmlRootElement(name = "implementation", namespace = Template.COMPOSITE_NAMESPACE)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CompositeImplementation extends ModelFragment implements Serializable {
     private static final long serialVersionUID = -3046226976516170979L;
 

@@ -33,7 +33,7 @@ import org.richfaces.cdk.CdkException;
  *
  */
 @XmlRootElement(name = "switch", namespace = Template.CDK_NAMESPACE)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CdkSwitchElement extends ModelFragment {
     @XmlAttribute
     private String key;

@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * @since 4.0
  */
 @XmlRootElement(name = "resourceDependency", namespace = Template.CDK_NAMESPACE)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class ResourceDependency implements Serializable {
     private static final long serialVersionUID = -7513798674871079584L;
 

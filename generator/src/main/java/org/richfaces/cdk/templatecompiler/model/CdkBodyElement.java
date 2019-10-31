@@ -36,7 +36,7 @@ import org.richfaces.cdk.CdkException;
  * @author asmirnov@exadel.com
  */
 @XmlRootElement(name = "body", namespace = Template.CDK_NAMESPACE)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CdkBodyElement extends ModelFragment {
 
     @XmlAttribute

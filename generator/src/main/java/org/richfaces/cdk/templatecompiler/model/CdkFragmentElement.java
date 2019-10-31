@@ -31,7 +31,7 @@ import org.richfaces.cdk.CdkException;
  * @author Lukas Fryc
  */
 @XmlRootElement(name = "fragment", namespace = Template.CDK_NAMESPACE)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CdkFragmentElement extends ModelFragment implements Serializable {
 
     private static final long serialVersionUID = -1885511982050527608L;

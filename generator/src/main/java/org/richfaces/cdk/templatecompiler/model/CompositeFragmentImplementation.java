@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Lukas Fryc
  */
 @XmlRootElement(name = "implementation", namespace = Template.COMPOSITE_NAMESPACE)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CompositeFragmentImplementation extends ModelFragment implements Serializable {
 
     private static final long serialVersionUID = -6604972558344909450L;

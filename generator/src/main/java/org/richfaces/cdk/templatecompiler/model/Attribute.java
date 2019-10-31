@@ -42,7 +42,7 @@ import com.google.common.collect.Lists;
  *
  * @author asmirnov@exadel.com
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class Attribute implements Serializable {
     private static final long serialVersionUID = -8183353368681247171L;
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)

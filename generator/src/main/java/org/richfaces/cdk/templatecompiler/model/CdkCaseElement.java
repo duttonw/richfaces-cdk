@@ -33,7 +33,7 @@ import org.richfaces.cdk.CdkException;
  *
  */
 @XmlRootElement(name = "case", namespace = Template.CDK_NAMESPACE)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CdkCaseElement extends ModelFragment {
     @XmlAttribute
     private String[] values;

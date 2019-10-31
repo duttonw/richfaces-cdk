@@ -31,7 +31,7 @@ import org.richfaces.cdk.CdkException;
  * @since 4.0
  */
 @XmlRootElement(name = "object", namespace = Template.CDK_NAMESPACE)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CdkObjectElement implements ModelElement {
     @XmlAttribute(required = true)
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)

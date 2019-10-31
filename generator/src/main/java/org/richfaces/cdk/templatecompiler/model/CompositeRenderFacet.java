@@ -36,7 +36,7 @@ import org.richfaces.cdk.CdkException;
  * @author Lukas Fryc
  */
 @XmlRootElement(name = "renderFacet", namespace = Template.COMPOSITE_NAMESPACE)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CompositeRenderFacet extends ModelFragment {
 
     @XmlAttribute(required = true)

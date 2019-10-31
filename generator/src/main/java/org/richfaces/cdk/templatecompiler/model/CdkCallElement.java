@@ -33,7 +33,7 @@ import org.richfaces.cdk.CdkException;
  * @author asmirnov@exadel.com
  */
 @XmlRootElement(name = "call", namespace = Template.CDK_NAMESPACE)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CdkCallElement implements ModelElement {
     @XmlAttribute
     private String expression;

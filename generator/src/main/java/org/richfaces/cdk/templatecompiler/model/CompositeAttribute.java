@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Lukas Fryc
  */
 @XmlRootElement(name = "attribute", namespace = Template.COMPOSITE_NAMESPACE)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CompositeAttribute implements Serializable {
 
     @XmlAttribute(required = true)

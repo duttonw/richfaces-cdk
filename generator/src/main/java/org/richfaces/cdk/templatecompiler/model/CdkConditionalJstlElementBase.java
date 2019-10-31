@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author Nick Belaevski
  * @since 4.0
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public abstract class CdkConditionalJstlElementBase extends ModelFragment {
     @XmlAttribute(required = true)
     private String test;

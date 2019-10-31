@@ -32,7 +32,7 @@ import org.richfaces.cdk.CdkException;
  * @author Lukas Fryc
  */
 @XmlRootElement(name = "renderFragment", namespace = Template.CDK_NAMESPACE)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CdkRenderFragmentElement implements ModelElement {
 
     @XmlAttribute(required = true)

@@ -34,7 +34,7 @@ import org.richfaces.cdk.CdkException;
  *
  */
 @XmlRootElement(name = "scriptObject", namespace = Template.CDK_NAMESPACE)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CdkScriptObjectElement extends ModelFragment {
     @XmlAttribute(required = true)
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)

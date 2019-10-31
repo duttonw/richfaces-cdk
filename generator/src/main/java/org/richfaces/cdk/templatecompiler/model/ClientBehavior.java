@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * @author Nick Belaevski
  *
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class ClientBehavior {
     @XmlAttribute
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)

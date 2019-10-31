@@ -39,7 +39,7 @@ import javax.xml.namespace.QName;
  * @author asmirnov@exadel.com
  */
 @XmlRootElement(name = "root", namespace = Template.CDK_NAMESPACE)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class Template implements Serializable {
     public static final String JSTL_CORE_NAMESPACE = "http://jboss.org/schema/richfaces/cdk/jstl/core";
     public static final String CDK_NAMESPACE = "http://jboss.org/schema/richfaces/cdk/core";
