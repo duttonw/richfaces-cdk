@@ -24,6 +24,8 @@ package org.richfaces.cdk.templatecompiler.model;
 import java.io.Serializable;
 import java.text.MessageFormat;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -33,10 +35,17 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * @since 4.0
  */
 @XmlRootElement(name = "resourceDependency", namespace = Template.CDK_NAMESPACE)
+@XmlAccessorType(XmlAccessType.NONE)
 public class ResourceDependency implements Serializable {
     private static final long serialVersionUID = -7513798674871079584L;
+
+    @XmlAttribute(name = "name", required = true)
+    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     private String name;
+    @XmlAttribute(name = "library")
+    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     private String library = "";
+    @XmlAttribute(name = "target")
     private String target = "";
 
     /**
@@ -45,8 +54,6 @@ public class ResourceDependency implements Serializable {
      *
      * @return the name
      */
-    @XmlAttribute(name = "name", required = true)
-    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     public String getName() {
         return name;
     }
@@ -67,8 +74,6 @@ public class ResourceDependency implements Serializable {
      *
      * @return the libraryName
      */
-    @XmlAttribute(name = "library")
-    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     public String getLibrary() {
         return library;
     }
@@ -89,7 +94,6 @@ public class ResourceDependency implements Serializable {
      *
      * @return the target
      */
-    @XmlAttribute(name = "target")
     public String getTarget() {
         return target;
     }

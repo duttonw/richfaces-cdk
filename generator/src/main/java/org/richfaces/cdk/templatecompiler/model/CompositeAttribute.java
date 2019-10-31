@@ -23,6 +23,8 @@ package org.richfaces.cdk.templatecompiler.model;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -30,6 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Lukas Fryc
  */
 @XmlRootElement(name = "attribute", namespace = Template.COMPOSITE_NAMESPACE)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CompositeAttribute implements Serializable {
 
     @XmlAttribute(required = true)

@@ -21,6 +21,8 @@
  */
 package org.richfaces.cdk.templatecompiler.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
@@ -28,8 +30,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * @author Nick Belaevski
  *
  */
+@XmlAccessorType(XmlAccessType.NONE)
 public class ClientBehavior {
+    @XmlAttribute
+    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     private String event;
+    @XmlAttribute(name = "default")
     private boolean defaultEvent;
 
     /**
@@ -38,8 +44,6 @@ public class ClientBehavior {
      *
      * @return the event
      */
-    @XmlAttribute
-    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     public String getEvent() {
         return event;
     }
@@ -60,7 +64,6 @@ public class ClientBehavior {
      *
      * @return the default
      */
-    @XmlAttribute(name = "default")
     public boolean isDefaultEvent() {
         return defaultEvent;
     }

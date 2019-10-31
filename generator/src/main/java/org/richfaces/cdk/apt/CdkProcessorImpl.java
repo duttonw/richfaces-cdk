@@ -166,8 +166,8 @@ public class CdkProcessorImpl extends AbstractProcessor implements CdkProcessor 
     @Override
     public SourceVersion getSupportedSourceVersion() {
 
-        // CDK supports Java 5 or 6 source code.
-        return SourceVersion.RELEASE_6;
+        // CDK supports Java 8+ source code.
+        return SourceVersion.RELEASE_8;
     }
 
     private void sendError(CdkException e) {

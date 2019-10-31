@@ -141,6 +141,10 @@ public class TaskFactoryImpl implements CompilationTaskFactory {
                 cdkProcessor.continueAfterJavaSourceProcessing();
                 return 0 == log.getErrorCount();
             }
+
+            public void addModules(Iterable<String> moduleNames){
+
+            }
         };
     }
 
