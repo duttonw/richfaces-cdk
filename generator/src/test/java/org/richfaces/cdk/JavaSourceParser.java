@@ -23,15 +23,16 @@
 package org.richfaces.cdk;
 
 import static org.junit.Assert.assertNotNull;
-import japa.parser.JavaParser;
-import japa.parser.ParseException;
-import japa.parser.ast.CompilationUnit;
-import japa.parser.ast.ImportDeclaration;
-import japa.parser.ast.body.FieldDeclaration;
-import japa.parser.ast.body.MethodDeclaration;
-import japa.parser.ast.body.TypeDeclaration;
-import japa.parser.ast.body.VariableDeclarator;
-import japa.parser.ast.visitor.VoidVisitorAdapter;
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ParseException;
+import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.ImportDeclaration;
+import com.github.javaparser.ast.NodeList;
+import com.github.javaparser.ast.body.FieldDeclaration;
+import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.body.TypeDeclaration;
+import com.github.javaparser.ast.body.VariableDeclarator;
+import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
@@ -51,7 +52,7 @@ public final class JavaSourceParser {
 
         @Override
         public void visit(MethodDeclaration n, String arg) {
-            if (arg.equals(n.getName())) {
+            if (arg.equals(n.getName().getIdentifier())) {
                 this.found = true;
             }
         }
@@ -62,7 +63,7 @@ public final class JavaSourceParser {
 
         @Override
         public void visit(ImportDeclaration n, String arg) {
-            if (arg.equals(n.getName().getName())) {
+            if (arg.equals(n.getName().getIdentifier())) {
                 this.found = true;
             }
         }
@@ -74,7 +75,7 @@ public final class JavaSourceParser {
         @Override
         public void visit(FieldDeclaration n, String arg) {
             for (VariableDeclarator declarator : n.getVariables()) {
-                if (arg.equals(declarator.getId().getName())) {
+                if (arg.equals(declarator.getName().getIdentifier())) {
                     this.found = true;
                 }
             }
@@ -89,7 +90,8 @@ public final class JavaSourceParser {
 
     public static JavaSourceParser parse(String javaSource) throws ParseException {
         ByteArrayInputStream inputStream = new ByteArrayInputStream(javaSource.getBytes());
-        CompilationUnit compilationUnit = JavaParser.parse(inputStream);
+        JavaParser parser = new JavaParser();
+        CompilationUnit compilationUnit = parser.parse(inputStream).getResult().get();
         assertNotNull(compilationUnit);
         return new JavaSourceParser(compilationUnit);
     }
@@ -113,14 +115,14 @@ public final class JavaSourceParser {
     }
 
     public String getPackageName() {
-        return this.compiledSource.getPakage().getName().getName();
+        return this.compiledSource.getPackageDeclaration().toString();
     }
 
     public Iterable<String> getClassNames() {
         List<String> classNames = Lists.newArrayList();
-        List<TypeDeclaration> types = compiledSource.getTypes();
+        NodeList<TypeDeclaration<?>> types = compiledSource.getTypes();
         for (TypeDeclaration typeDeclaration : types) {
-            classNames.add(typeDeclaration.getName());
+            classNames.add(typeDeclaration.getName().getIdentifier());
         }
         return classNames;
     }

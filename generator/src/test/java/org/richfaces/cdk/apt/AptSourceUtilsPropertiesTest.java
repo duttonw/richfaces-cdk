@@ -29,7 +29,6 @@ import static org.junit.Assert.assertTrue;
 import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.element.TypeElement;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.richfaces.cdk.apt.SourceUtils.BeanProperty;
 
@@ -42,12 +41,11 @@ import com.google.common.collect.ImmutableList;
  * @author asmirnov@exadel.com
  *
  */
-@Ignore("Failes in jdk8, unsure why")
 public class AptSourceUtilsPropertiesTest extends SourceUtilsTestBase {
     private static final String TEST_SUB_CLASS = "PropertyTestClass";
     private static final String TEST_CLASS = "TestClass";
     private static final String TEST_INTERFACE = "TestInterface";
-    private static final String PROPERTY_TEST_INTERFACE = "TestInterface";
+    private static final String PROPERTY_TEST_INTERFACE = "PropertyTestInterface";
     private static final String PACKAGE_PATH = "org/richfaces/cdk/apt/";
     private static final String CLASS_JAVA = PACKAGE_PATH + TEST_CLASS + ".java";
     private static final String SUB_CLASS_JAVA = PACKAGE_PATH + TEST_SUB_CLASS + ".java";
