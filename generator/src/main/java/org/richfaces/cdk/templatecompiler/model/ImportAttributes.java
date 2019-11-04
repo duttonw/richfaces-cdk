@@ -23,6 +23,8 @@ package org.richfaces.cdk.templatecompiler.model;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
@@ -30,17 +32,18 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * @author Nick Belaevski
  *
  */
+@XmlAccessorType(XmlAccessType.NONE)
 public class ImportAttributes implements Serializable {
 
     private static final long serialVersionUID = 1811205894633065557L;
 
+    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    @XmlAttribute(name = "src")
     private String source;
 
     /**
      * @return the source
      */
-    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
-    @XmlAttribute(name = "src")
     public String getSource() {
         return source;
     }

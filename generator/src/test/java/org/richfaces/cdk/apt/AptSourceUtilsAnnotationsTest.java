@@ -22,18 +22,20 @@ public class AptSourceUtilsAnnotationsTest extends SourceUtilsTestBase {
     private static final String PACKAGE_PATH = "org/richfaces/cdk/apt/";
     private static final String CLASS_JAVA = PACKAGE_PATH + ANNOTATIONS_TEST_CLASS + ".java";
     private static final String SUB_CLASS_JAVA = PACKAGE_PATH + ANNOTATIONS_TEST_SUB_CLASS + ".java";
+    private static final String INTERFACE_JAVA = PACKAGE_PATH + "TestInterface" + ".java";
+    private static final String TEST_CLASS_JAVA = PACKAGE_PATH + "TestClass" + ".java";
+
+
 
     @Test
     public void testGetAnnotationMirror() {
-        execute(new SourceUtilsCallback() {
-            @Override
-            public void process(SourceUtils utils, RoundEnvironment roundEnv) {
-                Element element = findElement(roundEnv, ANNOTATIONS_TEST_CLASS);
-                AnnotationMirror annotationMirror = utils.getAnnotationMirror(element, TestAnnotation.class);
-                assertNotNull(annotationMirror);
-                assertEquals(TestAnnotation.class.getName(), annotationMirror.getAnnotationType().toString());
-            }
-        });
+        SourceUtilsCallback callback = (utils, roundEnv) -> {
+            Element element = findElement(roundEnv, ANNOTATIONS_TEST_CLASS);
+            AnnotationMirror annotationMirror = utils.getAnnotationMirror(element, TestAnnotation.class);
+            assertNotNull(annotationMirror);
+            assertEquals(TestAnnotation.class.getName(), annotationMirror.getAnnotationType().toString());
+        };
+        this.execute(callback);
     }
 
     @Test
@@ -162,6 +164,6 @@ public class AptSourceUtilsAnnotationsTest extends SourceUtilsTestBase {
 
     @Override
     protected Iterable<String> sources() {
-        return ImmutableList.of(CLASS_JAVA, SUB_CLASS_JAVA);
+        return ImmutableList.of(INTERFACE_JAVA, TEST_CLASS_JAVA, CLASS_JAVA, SUB_CLASS_JAVA);
     }
 }

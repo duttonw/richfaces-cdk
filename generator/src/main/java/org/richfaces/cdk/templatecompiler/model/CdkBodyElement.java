@@ -22,6 +22,8 @@
  */
 package org.richfaces.cdk.templatecompiler.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -34,7 +36,10 @@ import org.richfaces.cdk.CdkException;
  * @author asmirnov@exadel.com
  */
 @XmlRootElement(name = "body", namespace = Template.CDK_NAMESPACE)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CdkBodyElement extends ModelFragment {
+
+    @XmlAttribute
     private boolean enforce = false;
 
     /**
@@ -43,7 +48,6 @@ public class CdkBodyElement extends ModelFragment {
      *
      * @return the enforce
      */
-    @XmlAttribute
     public boolean isEnforce() {
         return this.enforce;
     }

@@ -22,9 +22,7 @@
  */
 package org.richfaces.cdk.templatecompiler.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlValue;
+import javax.xml.bind.annotation.*;
 
 import org.richfaces.cdk.CdkException;
 
@@ -35,7 +33,9 @@ import org.richfaces.cdk.CdkException;
  * @author asmirnov@exadel.com
  */
 @XmlRootElement(name = "call", namespace = Template.CDK_NAMESPACE)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CdkCallElement implements ModelElement {
+    @XmlAttribute
     private String expression;
     @XmlValue
     private String bodyValue;
@@ -49,7 +49,7 @@ public class CdkCallElement implements ModelElement {
      *
      * @return the expression
      */
-    @XmlAttribute
+
     public String getExpression() {
         return this.expression;
     }

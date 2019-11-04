@@ -79,4 +79,9 @@ public class LibraryModelWrapper extends BeansWrapper implements ObjectWrapper {
             return super.wrap(obj);
         }
     }
+
+    protected TemplateModel create(Object object, Object factory)
+    {
+        return ((ModelFactory)factory).create(object, this);
+    }
 }

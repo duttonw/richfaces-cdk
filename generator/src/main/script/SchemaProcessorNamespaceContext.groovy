@@ -3,6 +3,7 @@ import java.util.Iterator;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 
+//TODO make work with groovy 2+
 import javax.xml.namespace.NamespaceContext;
 
 /*

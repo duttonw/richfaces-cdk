@@ -24,10 +24,7 @@ package org.richfaces.cdk.xmlconfig.model;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.richfaces.cdk.model.BehaviorModel;
@@ -52,6 +49,7 @@ import com.google.common.collect.Lists;
  */
 @XmlRootElement(name = "faces-config", namespace = ComponentLibrary.FACES_CONFIG_NAMESPACE)
 @XmlType(name = "faces-configType", namespace = ComponentLibrary.FACES_CONFIG_NAMESPACE)
+@XmlAccessorType(XmlAccessType.NONE)
 public class FacesConfigBean implements Extensible<FacesConfigBean.FacesConfigExtension> {
     @XmlElement(name = "component", namespace = ComponentLibrary.FACES_CONFIG_NAMESPACE)
     @XmlJavaTypeAdapter(ComponentAdapter.class)

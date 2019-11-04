@@ -113,7 +113,7 @@ public class TaskFactoryImpl implements CompilationTaskFactory {
 
             if (sourceObjects.iterator().hasNext()) {
                 if (log.isDebugEnabled()) {
-                    compilerOptions.add("-verbose");
+                    compilerOptions.add("-verbose -deprecation -Xlint:all");
                 }
 
                 CompilationTask task = getJavaCompiler().getTask(null, getFileManager(),
@@ -140,6 +140,10 @@ public class TaskFactoryImpl implements CompilationTaskFactory {
             public Boolean call() {
                 cdkProcessor.continueAfterJavaSourceProcessing();
                 return 0 == log.getErrorCount();
+            }
+
+            public void addModules(Iterable<String> moduleNames){
+
             }
         };
     }

@@ -24,15 +24,14 @@ package org.richfaces.cdk.attributes;
 import java.util.Collection;
 import java.util.HashSet;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * @author Nick Belaevski
  *
  */
+@XmlAccessorType(XmlAccessType.NONE)
 public class Attribute implements KeyedType {
     public enum Kind {
         GENERIC,
@@ -42,10 +41,11 @@ public class Attribute implements KeyedType {
 
     @XmlRootElement(name = "attributes")
     @XmlType(name = "AttributesType")
+    @XmlAccessorType(XmlAccessType.NONE)
     public static final class Type implements ContainerType<Attribute> {
+        @XmlElement(name = "attribute")
         private Collection<Attribute> children = new HashSet<Attribute>();
 
-        @XmlElement(name = "attribute")
         public Collection<Attribute> getChildren() {
             return children;
         }
@@ -56,10 +56,18 @@ public class Attribute implements KeyedType {
         }
     }
 
+    @XmlElement
+    @XmlJavaTypeAdapter(Adapters.NormalizedStringAdapter.class)
     private String name;
+    @XmlElement
     private boolean required;
+    @XmlElement(name = "default-value")
+    @XmlJavaTypeAdapter(Adapters.NormalizedStringAdapter.class)
     private String defaultValue;
+    @XmlElement(name = "component-attribute-name")
+    @XmlJavaTypeAdapter(Adapters.NormalizedStringAdapter.class)
     private String componentAttributeName;
+    @XmlElement
     private Kind kind = Kind.GENERIC;
 
     public Attribute() {
@@ -74,8 +82,6 @@ public class Attribute implements KeyedType {
     /**
      * @return the name
      */
-    @XmlElement
-    @XmlJavaTypeAdapter(Adapters.NormalizedStringAdapter.class)
     public String getName() {
         return name;
     }
@@ -95,7 +101,6 @@ public class Attribute implements KeyedType {
     /**
      * @return the required
      */
-    @XmlElement
     public boolean isRequired() {
         return required;
     }
@@ -110,8 +115,6 @@ public class Attribute implements KeyedType {
     /**
      * @return the defaultValue
      */
-    @XmlElement(name = "default-value")
-    @XmlJavaTypeAdapter(Adapters.NormalizedStringAdapter.class)
     public String getDefaultValue() {
         return defaultValue;
     }
@@ -126,7 +129,6 @@ public class Attribute implements KeyedType {
     /**
      * @return the kind
      */
-    @XmlElement
     public Kind getKind() {
         return kind;
     }
@@ -141,8 +143,6 @@ public class Attribute implements KeyedType {
     /**
      * @return the componentAttributeName
      */
-    @XmlElement(name = "component-attribute-name")
-    @XmlJavaTypeAdapter(Adapters.NormalizedStringAdapter.class)
     public String getComponentAttributeName() {
         return componentAttributeName != null ? componentAttributeName : name;
     }

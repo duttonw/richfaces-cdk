@@ -35,6 +35,7 @@ import com.sun.xml.xsom.XSSimpleType;
 import com.sun.xml.xsom.XSType;
 import com.sun.xml.xsom.XSUnionSimpleType;
 
+//TODO make work with groovy 2+
 final class SchemaProcessor {
 
     private NamespaceContext CDK_NAMESPACES_CONTEXT = new SchemaProcessorNamespaceContext();

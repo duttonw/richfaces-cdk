@@ -26,22 +26,22 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * @author Nick Belaevski
  *
  */
+@XmlAccessorType(XmlAccessType.NONE)
 public class Schema implements KeyedType {
     @XmlRootElement(name = "schemas")
     @XmlType(name = "SchemasType")
+    @XmlAccessorType(XmlAccessType.NONE)
     public static final class Type implements ContainerType<Schema> {
+        @XmlElement(name = "schema")
         private Collection<Schema> children = new HashSet<Schema>();
 
-        @XmlElement(name = "schema")
         public Collection<Schema> getChildren() {
             return children;
         }
@@ -52,7 +52,11 @@ public class Schema implements KeyedType {
         }
     }
 
+    @XmlElement
+    @XmlJavaTypeAdapter(Adapters.NormalizedStringAdapter.class)
     private String namespace;
+    @XmlElement(name="elements")
+    @XmlJavaTypeAdapter(Adapters.ElementAdapter.class)
     private Map<String, Element> elements = new TreeMap<String, Element>();
 
     public Schema() {
@@ -67,8 +71,6 @@ public class Schema implements KeyedType {
     /**
      * @return the namespace
      */
-    @XmlElement
-    @XmlJavaTypeAdapter(Adapters.NormalizedStringAdapter.class)
     public String getNamespace() {
         return namespace;
     }
@@ -92,7 +94,6 @@ public class Schema implements KeyedType {
     /**
      * @return the elements
      */
-    @XmlJavaTypeAdapter(Adapters.ElementAdapter.class)
     public Map<String, Element> getElements() {
         return elements;
     }

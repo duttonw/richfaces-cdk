@@ -101,11 +101,11 @@ public class TaskFactoryTest extends AnnotationProcessorTestBase {
         expect(output.getFolders()).andReturn(null);
         processor.init((ProcessingEnvironment) anyObject());
         expectLastCall();
-        expect(processor.getSupportedSourceVersion()).andReturn(SourceVersion.RELEASE_6);
+        expect(processor.getSupportedSourceVersion()).andReturn(SourceVersion.RELEASE_8);
         expect(processor.getSupportedAnnotationTypes()).andReturn(Collections.singleton("*"));
         expect(processor.getSupportedOptions()).andReturn(Collections.<String>emptySet());
         // processor.process(null,null);
-        Capture<Set<? extends TypeElement>> capturedTypes = new Capture<Set<? extends TypeElement>>(CaptureType.FIRST);
+        Capture<Set<? extends TypeElement>> capturedTypes = Capture.newInstance(CaptureType.FIRST);
 
         expect(processor.process(capture(capturedTypes), EasyMock.<RoundEnvironment>anyObject())).andReturn(true).times(2);
         replay(processor, output);
@@ -129,6 +129,6 @@ public class TaskFactoryTest extends AnnotationProcessorTestBase {
 
     @Override
     protected Iterable<String> sources() {
-        return ImmutableList.of(CLASS_JAVA, SUB_CLASS_JAVA);
+        return ImmutableList.of(INTERFACE_JAVA, CLASS_JAVA, SUB_CLASS_JAVA);
     }
 }

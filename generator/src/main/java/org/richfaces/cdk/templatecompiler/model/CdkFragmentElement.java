@@ -23,9 +23,7 @@ package org.richfaces.cdk.templatecompiler.model;
 
 import java.io.Serializable;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 
 import org.richfaces.cdk.CdkException;
 
@@ -33,15 +31,18 @@ import org.richfaces.cdk.CdkException;
  * @author Lukas Fryc
  */
 @XmlRootElement(name = "fragment", namespace = Template.CDK_NAMESPACE)
+@XmlAccessorType(XmlAccessType.NONE)
 public class CdkFragmentElement extends ModelFragment implements Serializable {
 
     private static final long serialVersionUID = -1885511982050527608L;
 
+    @XmlAttribute(required = true)
     private String name;
+    @XmlElement(name = "interface", namespace = Template.COMPOSITE_NAMESPACE)
     private CompositeFragmentInterface fragmentInterface;
+    @XmlElement(name = "implementation", namespace = Template.COMPOSITE_NAMESPACE)
     private CompositeFragmentImplementation fragmentImplementation;
 
-    @XmlAttribute(required = true)
     public String getName() {
         return name;
     }
@@ -50,7 +51,6 @@ public class CdkFragmentElement extends ModelFragment implements Serializable {
         this.name = name;
     }
 
-    @XmlElement(name = "interface", namespace = Template.COMPOSITE_NAMESPACE)
     public CompositeFragmentInterface getFragmentInterface() {
         return fragmentInterface;
     }
@@ -59,7 +59,6 @@ public class CdkFragmentElement extends ModelFragment implements Serializable {
         this.fragmentInterface = fragmentInterface;
     }
 
-    @XmlElement(name = "implementation", namespace = Template.COMPOSITE_NAMESPACE)
     public CompositeFragmentImplementation getFragmentImplementation() {
         return fragmentImplementation;
     }
