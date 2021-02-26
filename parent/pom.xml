@@ -34,7 +34,7 @@
         <version.jboss-el>1.1.0</version.jboss-el>
         <version.xsom>20140925</version.xsom>
         <version.google-functional-collections>1.1.7</version.google-functional-collections>
-        <version.guice>4.2.2</version.guice>
+        <version.guice>5.0.0</version.guice>
         <version.sisu>4.2.0</version.sisu>
         <version.sonatype-sisu>4.2.0</version.sonatype-sisu>
         <version.javaparser>3.15.3</version.javaparser>
