@@ -40,7 +40,7 @@
         <version.javaparser>3.15.3</version.javaparser>
         <version.guava>28.1-jre</version.guava>
         <version.jcommander>1.78</version.jcommander>
-        <version.plexus-utils>3.3.0</version.plexus-utils>
+        <version.plexus-utils>4.0.3</version.plexus-utils>
         <version.plexus-velocity>1.2</version.plexus-velocity>
         <version.maven-core>3.0.4</version.maven-core>
         <version.maven-archiver>2.4</version.maven-archiver>
